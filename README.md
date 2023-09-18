@@ -1,13 +1,25 @@
 # LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models
 We propose LayoutNUWA, the first model that treats layout generation as a code generation task to enhance semantic information and harnesses the hidden layout expertise of large language models. 
 <p align="center">  
-  <img src="assets/NUWA.png" width="80%" height="50%">  
+  <img src="assets/NUWALayout.gif" width="90%" height="60%">  
 </p>  
 
-## Generated Cases
+## Model Performance
+### Generated Cases
 We sample some generated cases by LayoutNUWA on the PubLayNet datasets.
 <p align="center">  
   <img src="assets/publaynet_cases.png" width="80%" height="50%">  
+</p> 
+
+### Automatic Evaluation
+#### Magazine Dataset
+<p align="center">  
+  <img src="assets/magazine_result.png" width="80%" height="50%">  
+</p> 
+
+#### RICO and PubLayNet Dataset
+<p align="center">  
+  <img src="assets/pub_result.png" width="80%" height="50%">  
 </p> 
 
 ## Setup
