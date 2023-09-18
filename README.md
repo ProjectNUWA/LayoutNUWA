@@ -1,14 +1,4 @@
 # LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models
-We propose LayoutNUWA, the first model that treats layout generation as a code generation task to enhance semantic information and harnesses the hidden layout expertise of large language models. 
-<p align="center">  
-  <img src="assets/NUWA.png" width="80%" height="50%">  
-</p>  
-
-## Generated Cases
-We sample some generated cases by LayoutNUWA on the PubLayNet datasets.
-<p align="center">  
-  <img src="assets/publaynet_cases.png" width="80%" height="50%">  
-</p> 
 
 ## Setup
 
@@ -16,7 +6,7 @@ We check the reproducibility under this environment.
 - Python 3.9.18
 - CUDA 11.6
 
-### Environment Installation
+### Install Environment
 
 Prepare your environment with the following command
 ```Shell
@@ -30,16 +20,16 @@ pip install -r requirements.txt
 ```
 
 ### Model Preparation
-We utilize [LLaMA2-7B](https://huggingface.co/meta-llama/Llama-2-7b) and [CodeLLaMA-7B](https://huggingface.co/codellama/CodeLlama-7b-hf) as our backbone.
+We utilize LLaMA2-7B[[link](https://huggingface.co/meta-llama/Llama-2-7b)] and CodeLLaMA-7B[[link](https://huggingface.co/codellama/CodeLlama-7b-hf)] as our backbone.
 You can download the models and place them under the ``./models`` directory.
 
 ### Dataset Preparation
 
-#### [Rico](https://interactionmining.org/rico) and [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/) Dataset
+#### [Rico](https://interactionmining.org/rico) and [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/) Processing
 
 
 
-Please following [https://raw.githubusercontent.com/CyberAgentAILab/layout-dm](https://raw.githubusercontent.com/CyberAgentAILab/layout-dm) to download the preprocessed datasets, FID and clustering models. 
+Please follow [https://raw.githubusercontent.com/CyberAgentAILab/layout-dm](https://raw.githubusercontent.com/CyberAgentAILab/layout-dm) to download the preprocessed datasets, FID and clustering models. 
 ``Notice``: **make sure you are under the LayoutNUWA directory**
 ``` Shell
 wget https://github.com/CyberAgentAILab/layout-dm/releases/download/v1.0.0/layoutdm_starter.zip
@@ -55,7 +45,7 @@ download
 - pretrained_weights
 ```
 
-Then, move the **download files** to the corresponding directory according to the below commond:
+Then, move the **download files** to the corresponding directory:
 
 ```Shell
 # preprocessed datasets
@@ -73,13 +63,13 @@ mv download/fid_weights/FIDNetV3/models/publaynet-max25 models/publaynet-max25
 mv download/clustering_weights/publaynet_max25_kmeans_train_clusters.pkl models/publaynet-max25
 ```
 
-#### [Magazine](https://xtqiao.com/projects/content_aware_layout/) Dataset
+#### [Magazine](https://xtqiao.com/projects/content_aware_layout/)
 
 1.  Download `MagLayout.zip` and decompress it.
-2.  Create the new directory `data/magazine/raw/` and move the contents into it as shown below:
+2.  Create the new directory `$DATASET/magazine/raw/` and move the contents into it as shown below:
 
     ```dircolors
-    data/magazine/raw/
+    $DATASET/magazine/raw/
     └── layoutdata
         ├── annotations
         │   ├── fashion_0001.xml
@@ -89,13 +79,13 @@ mv download/clustering_weights/publaynet_max25_kmeans_train_clusters.pkl models/
         │   ├── fashion_0005.xml
         │   ├── ...
     ```
-3. Please follow [https://github.com/ktrk115/const_layout/tree/master/data](https://github.com/ktrk115/const_layout/tree/master/data) and [https://github.com/CyberAgentAILab/layout-dm/blob/main/docs/custom_dataset.md](https://github.com/CyberAgentAILab/layout-dm/blob/main/docs/custom_dataset.md) to preprocess the raw datasets and train the FID as well as the clustering models.
+3. Please follow [https://github.com/ktrk115/const_layout/tree/master/data](https://github.com/ktrk115/const_layout/tree/master/data) and [https://github.com/CyberAgentAILab/layout-dm/blob/main/docs/custom_dataset.md](https://github.com/CyberAgentAILab/layout-dm/blob/main/docs/custom_dataset.md) to preprocess the raw datasets and train the FID and the clustering models.
 
 
-## Numerical Layout to Code Format Conversion
+## Convert Numerical Layout to Code Format
 You can run the following command to generate the code data for the RICO dataset
 
-``NOTICE``: if you want to generate code for two other datasets (publaynet and magazine), just replace the **Dataset Path** and **Output Path**.
+``NOTICE``: if you want to generate code for two other datasets (publaynet and magazine), just modify the ``--dataset_name``, ``--dataset_path``, and ``--save_path``.
 
 ### Build Training Data
 ```Shell
@@ -125,7 +115,7 @@ python convertHTML/build_code.py \
 We customize the training code based on the [LLaMA-X](https://github.com/AetherCortex/Llama-X)
 
 ### Training
-``NOTICE``: Please check the ``trainer/src/configs/hostfile`` and ``trainer/src/configs/deepspeed_config_2.json`` first, where the current code is designed for 64 NVIDIA V100 GPUs (8 x 8 nodes).
+Check the ``trainer/src/configs/hostfile`` and ``trainer/src/configs/deepspeed_config_2.json`` first, where the current code is designed for 64 NVIDIA V100 GPUs (8 x 8 nodes).
 ```Shell
 cd trainer/src/scripts
 bash scripts/train.sh
@@ -153,11 +143,3 @@ python evaluate.py \
 
 ``NOTICE``: just replace the dataset name, path and the path of generated results if you want to evalute other datasets.
 
-
-## Acknowledgement
-We appreciate the open source of the following projects:
-
-[Hugging Face](https://github.com/huggingface) &#8194;
-[LLaMA-X](https://github.com/AetherCortex/Llama-X) &#8194;
-[LayoutDM](https://github.com/CyberAgentAILab/layout-dm) &#8194; 
-[Const Layout](https://github.com/ktrk115/const_layout) &#8194; 
