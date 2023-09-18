@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ```
 
 ### Model Preparation
-We utilize [LLaMA2-7B](https://huggingface.co/meta-llama/Llama-2-7b) and CodeLLaMA-7B](https://huggingface.co/codellama/CodeLlama-7b-hf) as our backbone.
+We utilize [LLaMA2-7B](https://huggingface.co/meta-llama/Llama-2-7b) and [CodeLLaMA-7B](https://huggingface.co/codellama/CodeLlama-7b-hf) as our backbone.
 You can download the models and place them under the ``./models`` directory.
 
 ### Dataset Preparation
@@ -38,6 +38,7 @@ You can download the models and place them under the ``./models`` directory.
 #### [Rico](https://interactionmining.org/rico) and [PubLayNet](https://developer.ibm.com/exchanges/data/all/publaynet/) Dataset
 
 Please follow [https://raw.githubusercontent.com/CyberAgentAILab/layout-dm](https://raw.githubusercontent.com/CyberAgentAILab/layout-dm) to download the preprocessed datasets, FID and clustering models. 
+
 ``Notice``: **make sure you are under the LayoutNUWA directory**
 ``` Shell
 wget https://github.com/CyberAgentAILab/layout-dm/releases/download/v1.0.0/layoutdm_starter.zip
@@ -123,7 +124,7 @@ python convertHTML/build_code.py \
 We customize the training code based on the [LLaMA-X](https://github.com/AetherCortex/Llama-X)
 
 ### Training
-Please Check ``trainer/src/configs/hostfile`` and ``trainer/src/configs/deepspeed_config_2.json`` first, where the current code is designed for 64 NVIDIA V100 GPUs (8 x 8 nodes).
+Please Check ``trainer/src/configs/hostfile`` and ``trainer/src/configs/deepspeed_config_2.json`` first, where the current code is designed for 64 NVIDIA V100 GPUs (8 GPUs x 8 nodes).
 ```Shell
 cd trainer/src/scripts
 bash scripts/train.sh
