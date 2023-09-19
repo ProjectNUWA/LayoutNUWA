@@ -33,7 +33,7 @@ We check the reproducibility under this environment.
 
 Prepare your environment with the following command
 ```Shell
-git clone https://github.com/ZetangForward/LayoutNUWA.git
+git clone https://github.com/ProjectNUWA/LayoutNUWA.git
 cd LayoutNUWA
 
 conda create -n layoutnuwa python=3.9
@@ -67,7 +67,7 @@ download
 - pretrained_weights
 ```
 
-Then, move the **download files** to the corresponding directory according to the below commond:
+Then, move the **download files** to the corresponding directory:
 
 ```Shell
 # preprocessed datasets
@@ -163,7 +163,7 @@ python evaluate.py \
     --dataset_path data/rico25-max25 \
 ```
 
-``NOTICE``: just replace the dataset name, path and the path of generated results if you want to evalute other datasets.
+``NOTICE``: just change the dataset name, dataset path, and generated results path if you want to evaluate other datasets.
 
 
 ## Acknowledgement
