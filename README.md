@@ -1,5 +1,6 @@
 # LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models
-We propose LayoutNUWA, the first model that treats layout generation as a code generation task to enhance semantic information and harnesses the hidden layout expertise of large language models. 
+Implementation of the paper [LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models
+](https://arxiv.org/abs/2309.09506), which treats layout generation as a code generation task and effectively utilizes the inherent layout expertise of large language models to enhance the performance of layout generation significantly.
 <p align="center">  
   <img src="assets/NUWALayout.gif" width="90%" height="60%">  
 </p>  
