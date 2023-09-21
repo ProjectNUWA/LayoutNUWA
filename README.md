@@ -7,7 +7,7 @@ Implementation of the paper [LayoutNUWA: Revealing the Hidden Layout Expertise o
 
 ## Model Performance
 ### Generated Cases
-We sample some generated cases by LayoutNUWA on the PubLayNet datasets.
+We sample some generated cases by LayoutNUWA for the PubLayNet datasets.
 <p align="center">  
   <img src="assets/publaynet_cases.png" width="80%" height="50%">  
 </p> 
