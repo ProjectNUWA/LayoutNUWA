@@ -9,7 +9,7 @@ Implementation of the paper [LayoutNUWA: Revealing the Hidden Layout Expertise o
 ### Generated Cases
 We sample some generated cases by LayoutNUWA for the PubLayNet datasets.
 <p align="center">  
-  <img src="assets/publaynet_cases.png" width="80%" height="50%">  
+  <img src="assets/pub_cases.png" width="80%" height="50%">  
 </p> 
 
 ### Automatic Evaluation
