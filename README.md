@@ -1,4 +1,4 @@
-# LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models
+# LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models [ICLR2024]
 Implementation of the paper [LayoutNUWA: Revealing the Hidden Layout Expertise of Large Language Models
 ](https://arxiv.org/abs/2309.09506), which treats layout generation as a code generation task and effectively utilizes the inherent layout expertise of large language models to enhance the performance of layout generation significantly.
 <p align="center">  
